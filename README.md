@@ -18,12 +18,12 @@ earlier history of the repo, where some testnet data was included.
 
 ### Regular Clone
 ```
-git clone git@github.com:freewil/bitcoin-testnet-box.git
+git clone git@github.com:niclin/bitcoin-testnet-box.git
 ```
 
 ### Shallow Clone
 ```
-git clone --shallow-since 2014-10-18 git@github.com:freewil/bitcoin-testnet-box.git
+git clone --shallow-since 2014-10-18 git@github.com:niclin/bitcoin-testnet-box.git
 ```
 
 ## Starting the testnet-box
@@ -34,9 +34,9 @@ Two nodes are provided, as one is used to generate blocks and it's balance
 will be increased as this occurs (imitating a miner). You may want a second node
 where this behavior is not observed.
 
-Node `1` will listen on port `19000`, allowing node `2` to connect to it.
+Node `1` will listen on port `18332`, allowing node `2` to connect to it.
 
-Node `1` will listen on port `19001` and node `2` will listen on port `19011`
+Node `1` will listen on port `18332` and node `2` will listen on port `19011`
 for the JSON-RPC server.
 
 
@@ -158,7 +158,7 @@ an isolated container.
 ### Building docker image
 
 Pull the image
-  * `docker pull freewil/bitcoin-testnet-box`
+  * `docker pull niclin/bitcoin-testnet-box`
 
 or build it yourself from this directory
   * `docker build -t bitcoin-testnet-box .`
@@ -168,10 +168,10 @@ The docker image will run two bitcoin nodes in the background and is meant to be
 attached to allow you to type in commands. The image also exposes
 the two JSON-RPC ports from the nodes if you want to be able to access them
 from outside the container.
-      
-   `$ docker run -t -i -p 19001:19001 -p 19011:19011 freewil/bitcoin-testnet-box`
+
+   `$ docker run -t -i -p 18332:18332 -p 19011:19011 niclin/bitcoin-testnet-box`
 
 or if you built the docker image yourself:
 
-   `$ docker run -t -i -p 19001:19001 -p 19011:19011 bitcoin-testnet-box`
+   `$ docker run -t -i -p 18332:18332 -p 19011:19011 bitcoin-testnet-box`
 
